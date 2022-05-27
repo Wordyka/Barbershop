@@ -50,10 +50,11 @@
                      ?>  
                      <div class="col-md-4" style="margin-top:12px;">  
                           <div style="border:1px solid #333; background-color:#FF7D00; border-radius:5px; padding:16px; height:350px;" align="center">  
+                              <input type="hidden" name="id_produk" id="id_produk" value="<?php echo $row["id_produk"]; ?>" /> 
                                <img src="images/<?php echo $row["gambar"]; ?>" class="img-responsive" /><br />  
                                <h4 class="text-dark"><?php echo $row["nama_produk"]; ?></h4>  
                                <h4 class="text-dark">Rp. <?php echo $row["harga_produk"]; ?></h4>  
-                               <input type="text" name="quantity" id="quantity<?php echo $row["id_produk"]; ?>" class="form-control" value="1" />  
+                               <input type="number" name="quantity" id="quantity<?php echo $row["id_produk"]; ?>" class="form-control" value="1" />  
                                <input type="hidden" name="hidden_name" id="nama_produk<?php echo $row["id_produk"]; ?>" value="<?php echo $row["nama_produk"]; ?>" />  
                                <input type="hidden" name="hidden_desc" id="deskripsi_produk<?php echo $row["id_produk"]; ?>" value="<?php echo $row["deskripsi_produk"]; ?>" />
                                <input type="hidden" name="hidden_price" id="harga_produk<?php echo $row["id_produk"]; ?>" value="<?php echo $row["harga_produk"]; ?>" />  
@@ -151,7 +152,7 @@
  <script>  
  $(document).ready(function(data){  
       $('.add_to_cart').click(function(){  
-           var id_produk = $(this).attr("id_produk");  
+           var id_produk = $('#id_produk').val();  
            var nama_produk = $('#nama_produk'+id_produk).val(); 
            var deskripsi_produk = $('#deskripsi_produk'+id_produk).val(); 
            var harga_produk = $('#harga_produk'+id_produk).val();  
